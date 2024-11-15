@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Product of 5 Numbers</title>
+</head>
+<body>
+  <h1>Product of 5 Numbers</h1>
+  <label for="num1">Enter number 1:</label>
+  <input type="text" id="num1" placeholder="Enter number 1">
+  <label for="num2">Enter number 2:</label>
+  <input type="text" id="num2" placeholder="Enter number 2">
+  <label for="num3">Enter number 3:</label>
+  <input type="text" id="num3" placeholder="Enter number 3">
+  <label for="num4">Enter number 4:</label>
+  <input type="text" id="num4" placeholder="Enter number 4">
+  <label for="num5">Enter number 5:</label>
+  <input type="text" id="num5" placeholder="Enter number 5">
+  <button onclick="calculateProduct()">Calculate</button>
+  
+  <p id="result"></p>
+
+  <script>
+  function calculateProduct() 
+  {
+   let num1 = parseInt(document.getElementById("num1").value);
+   let num2 = parseInt(document.getElementById("num2").value);
+   let num3 = parseInt(document.getElementById("num3").value);
+   let num4 = parseInt(document.getElementById("num4").value);
+   let num5 = parseInt(document.getElementById("num5").value);
+   let product = num1 * num2 * num3 * num4 * num5;
+   document.getElementById("result").innerText = "Product: " + product;
+  }
+  </script>
+</body>
+</html>
+
+

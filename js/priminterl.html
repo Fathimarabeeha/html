@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Prime Numbers in Interval</title>
+</head>
+<body>
+
+ <h1>Prime Numbers in Interval</h1>
+ <label for="start">Start:</label>
+ <input type="text" id="start" placeholder="Start of the interval">
+ <label for="end">End:</label>
+ <input type="text" id="end" placeholder="End of the interval">
+ <button onclick="printPrimes()">Print Primes</button>
+  
+ <p id="result"></p>
+
+  <script>
+   function isPrime(number) 
+  {
+     if (number <= 1) 
+        {
+            return false;
+        }
+        for (let i = 2; i <= number/2; i++) 
+        {
+            if (number % i == 0)
+             {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function printPrimes() {
+        let start = parseInt(document.getElementById("start").value);
+        let end = parseInt(document.getElementById("end").value);
+        let primes = [];
+        for (let i = start; i <= end; i++) 
+        {
+            if (isPrime(i)) {
+                primes.push(i);
+            }
+        }
+        document.getElementById("result").innerText = primes.join(", ");
+    }
+    </script>
+</body>
+</html>

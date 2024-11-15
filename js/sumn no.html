@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Sum of N Numbers</title>
+</head>
+<body>
+    <h1>Sum of N Numbers</h1>
+    <label for="n">Enter a number:</label>
+    <input type="text" id="n" placeholder="Enter a number">
+    <button onclick="calculateSum()">Calculate</button>
+  
+    <p id="result"></p>
+
+    <script>
+    function calculateSum() 
+    {
+        let n = parseInt(document.getElementById("n").value);
+        let sum = (n * (n + 1)) / 2;
+        document.getElementById("result").innerText = "Sum: " + sum;
+    }
+    </script>
+</body>
+</html>

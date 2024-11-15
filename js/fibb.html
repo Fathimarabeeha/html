@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Fibonacci Sequence</title>
+</head>
+<body>
+    <h1>Fibonacci Sequence</h1>
+    <label for="terms">Enter the number of terms:</label>
+    <input type="text" id="terms" placeholder="Number of terms">
+    <button onclick="printFibonacci()">Generate</button>
+  
+    <p id="result"></p>
+
+    <script>
+    function printFibonacci() 
+    {
+        let terms = parseInt(document.getElementById("terms").value);
+        let fib = [];
+        let a = 0, b = 1;
+        for (let i = 0; i < terms; i++) 
+        {
+            fib.push(a);
+            let next = a + b;
+            a = b;
+            b = next;
+        }
+        document.getElementById("result").innerText = fib.join(", ");
+    }
+    </script>
+</body>
+</html>
