@@ -1,0 +1,93 @@
+<html>
+<head>
+    <title>Calendar</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            font-weight: bold;
+            background-color: #E6E6E6;
+        }
+    </style>
+</head>
+<body bgcolor="pink">
+    <label for="year">Enter Year:</label>
+    <input type="number" id="year" placeholder="Enter year"/>
+    <button onclick="generateCalendar()">Generate Calendar</button>
+    <div id="calendar"></div>
+
+<script>
+function generateCalendar() 
+{
+ var year = document.getElementById("year").value;
+ if (!year) {
+                alert("Please enter a valid year.");
+                return;
+            }
+            var calendarElem = document.getElementById("calendar");
+            calendarElem.innerHTML = ''; 
+
+            for (let mon = 0; mon < 12; mon++) 
+            {
+                createCalendar(months[mon], year, mon, calendarElem);
+            }
+}
+
+function createCalendar(monthName, year, monthIndex, elem) 
+{
+    var d = new Date(year, monthIndex); 
+    let table = '<h3>' + monthName + ' ' + year + '</h3>';
+    table += '<table>';
+    table += '<tr><th>MO</th><th>TU</th><th>WE</th><th>TH</th><th>FR</th><th>SA</th><th>SU</th></tr>';
+    
+    for (let i = 0; i < getDay(d); i++)
+     {
+       table += '<td></td>';
+     }
+
+   
+    let lastDate = new Date(year, monthIndex + 1, 0); 
+    for (let day = 1; day <= lastDate.getDate(); day++)
+       {
+        d.setDate(day); 
+
+        table += '<td>' + d.getDate() + '</td>';
+        if (getDay(d) % 7 == 6)
+        {
+            table += '</tr>';
+            if (day < lastDate.getDate()) 
+            { 
+                table += '<tr>';
+            }
+        }
+       }
+
+      if (getDay(d) !== 0) {
+        for (let i = getDay(d); i < 7; i++) {
+            table += '<td></td>';
+        }
+        table += '</tr>';
+    }
+
+    table += '</table>';
+    elem.insertAdjacentHTML('beforeend', table);
+}
+
+function getDay(date) 
+{
+  let day = date.getDay();
+  if (day == 0) day = 7; 
+  return day - 1; 
+}
+
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+</script>
+</body>
+</html>
