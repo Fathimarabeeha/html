@@ -1,0 +1,16 @@
+<html>
+<head>
+<button type="button" onclick="colorchange();">
+change background color </button>
+<script>
+var color = ["Khaki", "Moccasin", "PaleGreen", "plum"];
+var i = 0; 
+
+function colorchange() 
+{
+ document.getElementsByTagName("body")[0].style.backgroundColor = color[i];
+ i = (i + 1) % color.length;
+}
+</script>
+</body>
+</html>
